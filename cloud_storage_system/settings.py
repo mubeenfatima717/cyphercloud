@@ -66,12 +66,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # Custom Apps
+    #apps we made for projectk
     'authentication_app',
     'storage_app',
     'security_app',
     'ai_classifier_app',
 ]
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
