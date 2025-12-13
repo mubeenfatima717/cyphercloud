@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="wrapper">
+    <form action="#" method="post">
+        <h1>Register</h1>
+        <div class="input-box">
+            <input type="text" placeholder="Username" name="username" required>
+            <i class='bx bx-user'></i>
+        </div>
+        <div class="input-box">
+            <input type="email" placeholder="Email" name="email" required>
+            <i class='bx bx-envelope'></i>
+        </div>
+        <div class="input-box">
+            <input type="password" placeholder="Password" name="password" required>
+            <i class='bx bx-lock'></i>
+        </div>
+        <div class="input-box">
+            <input type="password" placeholder="Confirm Password" name="confirm_password" required>
+            <i class='bx bx-lock-alt'></i>
+        </div>
+        <button type="submit" class="btn">Register</button>
+        <p>Already have an account? <a href="#">Login here</a></p>
+    </form>
+</div>
+{% endblock content %}
