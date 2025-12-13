@@ -1,7 +1,11 @@
-from django.urls import path
-from .views import login_view, register_view
+from django import path
+
+from authentication_app import views 
 
 urlpatterns = [
-    path('login/', login_view, name='login'), # No 'views.' prefix needed
-    path('register/', register_view, name='register'), # No 'views.' prefix needed
+    # urls for the log in and sign up logic
+    path('register/', views.register_view, name='sign_up'),
+    path('login/', views.login_view, name='login'),
+    path('logout/', views.logout_view, name='logout'),
+    path('dashboard/', views.dashboard_view, name='dashboard'),
 ]
