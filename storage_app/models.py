@@ -12,7 +12,7 @@ class File(models.Model):
     file_name=models.CharField(max_length=255) #user sees (.pdf, .txt)
 
     owner=models.ForeignKey(User,related_name="files",on_delete=models.CASCADE)
-    file_data=models.BinaryField(null=True, blank=True)
+    file_data=models.BinaryField()
     folder=models.ForeignKey(Folder,null=True,blank=True,related_name="files",on_delete=models.CASCADE)
     file_type=models.CharField(max_length=255) 
     file_size=models.BigIntegerField() 

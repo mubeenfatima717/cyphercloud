@@ -21,8 +21,3 @@ def analyze_file_type(filename):
         return "Code"
     else:
         return "Other"
-if __name__ == "__main__":
-    print(f"data.zip   -> {analyze_file_type('data.zip')}")
-    print(f"script.py  -> {analyze_file_type('script.py')}")
-    print(f"photo.jpg  -> {analyze_file_type('photo.jpg')}")
-    
