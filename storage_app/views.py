@@ -34,3 +34,21 @@ def upload_view(request):
             return redirect('dashboard.html')
 
     return render(request, 'dashboard.html')
+
+
+
+import os
+from django.conf import settings
+from django.http import HttpResponse
+from .models import File
+from security_app.encryption import decrypt 
+
+def download_file(request, file_id):
+    file_obj = File.objects.get(id=file_id)
+    file_path = os.path.join(settings.MEDIA_ROOT, file_obj.encrypted_name)
+    with open(file_path, 'rb') as f:
+        encrypted_data = f.read()
+    decrypted_data = decrypt(encrypted_data)
+    response = HttpResponse(decrypted_data, content_type='application/octet-stream')
+    response['Content-Disposition'] = f'attachment; filename="{file_obj.file_name}"'
+    return response
