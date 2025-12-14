@@ -1,0 +1,14 @@
+{% extends 'base.html' %} 
+{% block title %}Upload New File{% endblock %}
+
+{% block content %}
+<div class="form-card">
+    <h2>Upload File to Cloud Drive</h2>
+    <form method="POST" enctype="multipart/form-data"> 
+        {% csrf_token %} <label for="file_input">Choose File:</label>
+        <input type="file" name="file_input" required> 
+        
+        <button type="submit">Upload</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %} 
+
+{% block title %}My Cloud Drive - Dashboard{% endblock %}
+
+{% block content %}
+<div class="drive-container">
+    <div class="sidebar">
+        
+        <a href="/upload_page/" class="sidebar-button">➕ New</a> 
+
+        <a href="#" class="sidebar-link active">My Folders</a>
+        <a href="/create_folder_page/" class="sidebar-link">Create Folder</a> 
+    </div>
+
+    <div class="main-content">
+        
+        <div class="action-bar">
+            <h2>My Files</h2>
+            <a href="/upload_page/" class="upload-button">➕ Upload File</a>
+        </div>
+        
+        <table class="file-list-table">
+            <thead>
+                <tr>
+                    <th>Filename</th>
+                    <th class="align-center">File Type</th>
+                    <th class="align-center">Size</th>
+                    <th class="align-right">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+    {% for file in files %}
+    <tr>
+        <!-- Field: file_name -->
+        <td>{{ file.file_name }}</td>
+        
+        <!-- Field: file_type -->
+        <td class="align-center">{{ file.file_type }}</td>
+        
+        <!-- Field: file_size (Django makes it readable, e.g., 2.5MB) -->
+        <td class="align-center">{{ file.file_size|filesizeformat }}</td>
+        
+        <td class="align-right">
+            <!-- We will build the download link in Phase 3 -->
+            <a href="#">Download</a> | <a href="#" style="color:red;">Delete</a>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="4" style="text-align:center;">No files found. Upload one!</td>
+    </tr>
+    {% endfor %}
+</tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

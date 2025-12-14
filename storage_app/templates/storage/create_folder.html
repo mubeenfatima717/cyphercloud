@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Create New Folder{% endblock %}
+
+{% block content %}
+<div class="form-card">
+    <h2>Create New Folder</h2>
+    <form method="POST">
+        {% csrf_token %} <input type="text" name="folder_name" placeholder="Enter folder name" required>
+        
+        <button type="submit">Create Folder</button>
+    </form>
+</div>
+{% endblock %}

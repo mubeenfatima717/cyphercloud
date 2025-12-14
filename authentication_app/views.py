@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 #to connect with table in sal and check the user 
 from django.contrib.auth.models import User
@@ -24,15 +24,15 @@ def register_view(request):
          #checking if user already exist in the database
          if User.objects.filter(username=input_username).exists():
             #  return HttpResponse("user already exists")
-            return render(request, 'login.html' , {'message' : 'user exists'} )
+            return render(request, 'authentication_app/login.html' , {'message' : 'user exists'} )
          else:
              # TODO: all teh equvalent commands for the commands in sql
              new_user = User.objects.create_user(input_username , input_email , input_password)
              login(request, new_user)
-             return render(request, 'dashboard.html')
+             return redirect('dashboard') 
      # if user just seeing the page 
      else:
-         return render(request, 'register.html')
+         return render(request, 'authentication_app/register.html')
       
      
 def login_view(request):
@@ -43,14 +43,14 @@ def login_view(request):
         user = authenticate(username = input_username ,password = input_password)
         if user is not None:
             login(request, user)
-            return render(request, 'dashboard')
+            return redirect('dashboard')
         else:
-            return render(request, 'login.html' , {'message' : 'wrong information or account does not exist'} ) 
+            return render(request, 'authentication_app/login.html' , {'message' : 'wrong information or account does not exist'} ) 
      
     else:
-        return render(request, 'login.html')
+        return render(request, 'authentication_app/login.html')
     
 
 def logout_view(request):
     logout(request)
-    return render(request , 'login.html')
+    return redirect('login')
