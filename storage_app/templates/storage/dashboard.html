@@ -6,17 +6,35 @@
 <div class="drive-container">
     <div class="sidebar">
         
-        <a href="/upload_page/" class="sidebar-button">➕ New</a> 
+        <a href="{% url 'create_folder' %}" class="sidebar-button">➕ New</a> 
 
-        <a href="#" class="sidebar-link active">My Folders</a>
-        <a href="/create_folder_page/" class="sidebar-link">Create Folder</a> 
-    </div>
+    
+<p class="sidebar-link">My Folders</p> 
+{% for folder in folders %}
+    <a href="{% url 'dashboard_folder' folder.id %}" class="sidebar-link {% if current_folder == folder %}active{% endif %}">{{ folder.name }}</a>
+{% endfor %}
+
+<!--  LOGOUT BUTTON -->
+<a href="{% url 'logout' %}" class="sidebar-link logout-button" onclick="return confirm('Are you sure you want to logout?');">Logout</a>
+
+
+</div>
 
     <div class="main-content">
         
         <div class="action-bar">
             <h2>My Files</h2>
-            <a href="/upload_page/" class="upload-button">➕ Upload File</a>
+          <form action="{% url 'upload_file' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <!-- This is the new, smart part. It's a hidden field. -->
+    {% if current_folder %}
+        <input type="hidden" name="folder_id" value="{{ current_folder.id }}">
+    {% endif %}
+
+    <input type="file" name="file_input" id="file_input" style="display: none;" onchange="this.form.submit();" required>
+    <label for="file_input" class="upload-button">➕ Upload File</label>
+</form>
         </div>
         
         <table class="file-list-table">
@@ -37,13 +55,15 @@
         <!-- Field: file_type -->
         <td class="align-center">{{ file.file_type }}</td>
         
-        <!-- Field: file_size (Django makes it readable, e.g., 2.5MB) -->
+
         <td class="align-center">{{ file.file_size|filesizeformat }}</td>
         
-        <td class="align-right">
-            <!-- We will build the download link in Phase 3 -->
-            <a href="#">Download</a> | <a href="#" style="color:red;">Delete</a>
-        </td>
+       <td class="align-right">
+    
+    <a href="{% url 'download_file' file.id %}">Download</a> 
+    |<a href="{% url 'delete_file' file.id %}" style="color:red;">Delete</a>
+   
+</td>
     </tr>
     {% empty %}
     <tr>
@@ -54,4 +74,11 @@
         </table>
     </div>
 </div>
+<style>
+    .sidebar-link.active {
+        background-color: #e0f2ff !important; /* Light blue background */
+        color: #0077c2 !important;           /* Blue text */
+        font-weight: 700 !important;          /* Bold text */
+    }
+</style>
 {% endblock %}

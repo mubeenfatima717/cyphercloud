@@ -26,7 +26,7 @@ body {
 
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Changed from space-between to center */
     align-items: center;
     padding: 15px 50px;
     max-width: 1200px;
@@ -131,9 +131,10 @@ body {
     background: #0056b3;
 }
 
+/* ADJUSTED CSS: Sets content to start (left) after removing the 'Forgot password' link */
 .remember-forgot {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start; /* Changed from space-between */
     font-size: 0.9em;
     margin: -15px 0 15px;
 }
@@ -195,6 +196,8 @@ p a:hover {
     border-right: 1px solid #e7eaf3; 
     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.03); 
     font-size: 0.95rem;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Sidebar "New" Button (Primary Action - Teal Gradient accent for high visibility) */
@@ -220,6 +223,24 @@ p a:hover {
     box-shadow: 0 8px 18px rgba(26, 188, 156, 0.7);
     transform: translateY(-2px); 
 }
+/* --- Logout Button in Sidebar --- */
+.logout-button {
+    margin-top: auto;  /* Pushes this item to the bottom of the flex container */
+    margin-right: 25px; /* Matches the sidebar's right padding, keeping it aligned */
+    margin-bottom: 10px; /* Some space from the very bottom edge */
+    
+    background-color: #e74c3c; /* A strong, clear red */
+    color: white !important; /* White text for contrast */
+    
+    border-radius: 6px; /* Matches the other sidebar link styles */
+    text-align: center; /* Ensures the text is centered */
+    font-weight: 600 !important; /* Makes the font bold */
+}
+
+.logout-button:hover {
+    background-color: #c0392b !important; /* A darker red on hover for feedback */
+    color: white !important; /* Keep the text white */
+}
 
 /* Sidebar Links - Improved Hierarchy and Spacing */
 .sidebar-link {
@@ -232,6 +253,8 @@ p a:hover {
     border-radius: 6px; 
     transition: background-color 0.2s, color 0.2s;
     font-weight: 500;
+     display: flex;
+    flex-direction: column;
 }
 
 .sidebar-link:hover {

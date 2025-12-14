@@ -10,7 +10,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import logout
 
 
-# if user opens the registeration page
+# if registeration pageis opened
 def register_view(request):
      
      #it checks if user press the registeration btn to register in website
@@ -24,7 +24,7 @@ def register_view(request):
          #checking if user already exist in the database
          if User.objects.filter(username=input_username).exists():
             #  return HttpResponse("user already exists")
-            return render(request, 'authentication_app/login.html' , {'message' : 'user exists'} )
+            return render(request, 'authentication_app/login.html', {'message': 'Account already exists. Please Log In.'})
          else:
              # TODO: all teh equvalent commands for the commands in sql
              new_user = User.objects.create_user(input_username , input_email , input_password)
