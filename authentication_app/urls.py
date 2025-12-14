@@ -1,6 +1,6 @@
-from django import path
+from django.urls import path
 
-from authentication_app import views 
+from . import views 
 
 urlpatterns = [
     # urls for the log in and sign up logic
