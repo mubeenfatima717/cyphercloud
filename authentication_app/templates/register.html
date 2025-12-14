@@ -2,7 +2,8 @@
 
 {% block content %}
 <div class="wrapper">
-    <form action="#" method="post">
+    <form action="{% url 'sign_up' %}" method="post">
+         {% csrf_token %} 
         <h1>Register</h1>
         <div class="input-box">
             <input type="text" placeholder="Username" name="username" required>
@@ -21,7 +22,7 @@
             <i class='bx bx-lock-alt'></i>
         </div>
         <button type="submit" class="btn">Register</button>
-        <p>Already have an account? <a href="#">Login here</a></p>
+        <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
     </form>
 </div>
 {% endblock content %}

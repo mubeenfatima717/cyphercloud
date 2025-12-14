@@ -3,7 +3,7 @@
 key = 123
 
 # function for encrypting the data
-def encryt(file_data):
+def encrypt(file_data):
 
     l =[]
     for x in file_data:
