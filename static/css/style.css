@@ -1,0 +1,179 @@
+/* Import Google Font (Roboto is clean and professional) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+/* --- GLOBAL STYLES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif; /* Applied professional font */
+}
+
+body {
+    background-color: #f4f7f9; /* Light gray background */
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; /* Stacks header, content, and footer vertically */
+}
+
+/* --- HEADER / NAVBAR STYLES --- */
+.main-header {
+    background-color: #ffffff; /* White header */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    width: 100%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #007bff; /* Primary blue color for branding */
+    text-decoration: none;
+}
+
+.nav-links a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #0056b3;
+}
+
+/* --- CONTENT AREA (Forms) --- */
+.content-area {
+    flex-grow: 1; /* Pushes the footer down */
+    display: flex;
+    justify-content: center; /* Centers the card horizontally */
+    align-items: center; /* Centers the card vertically */
+    padding: 40px 20px;
+}
+
+/* Auth Card / Wrapper Styles - Implements the Card UI */
+.wrapper {
+    width: 100%;
+    max-width: 400px; /* Standard form width */
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Card shadow */
+    padding: 40px;
+    text-align: center;
+}
+
+.wrapper h1 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid #ccc;
+    border-radius: 40px;
+    font-size: 1em;
+    color: #333;
+    padding: 0 45px 0 20px;
+}
+
+.input-box input::placeholder {
+    color: #999;
+}
+
+/* Icon styling (if you are using boxicons or similar) */
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+    color: #777;
+}
+
+.btn {
+    width: 100%;
+    height: 45px;
+    background: #007bff; /* Primary button color */
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9em;
+    margin: -15px 0 15px;
+}
+
+.remember-forgot label input {
+    accent-color: #007bff;
+    margin-right: 3px;
+}
+
+.remember-forgot a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+p {
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+p a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+/* --- FOOTER STYLES --- */
+.main-footer {
+    background-color: #e9ecef; /* Light gray footer */
+    color: #777;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.85rem;
+    width: 100%;
+}
