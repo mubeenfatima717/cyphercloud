@@ -11,32 +11,18 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 import os
-# Why? This is a built-in Python tool. We need it to read "Environment Variables" 
-# (the secrets stored in your .env file).
 
 from pathlib import Path
-# Why? This helps manage file paths (like C:/Users/hp/...) so they work 
-# on both Windows and Mac without breaking.
 
 from dotenv import load_dotenv 
-# Why? This is the external library we installed. It has one job: 
-# Find the .env file and open it.
 
 import pymysql
-# Why? Python does not know how to talk to MySQL by default. 
-# This library is the "translator".
  
- #load the .env file 
 load_dotenv()
-# Why? This line actually EXECUTES the loading. 
-# If you import it but don't call this function, your secrets remain hidden 
-# and the code will fail.
 
 
 # configure MySQL
 pymysql.install_as_MySQLdb()
-# Why? Django is stubborn. It expects a C++ driver called "mysqlclient". 
-# This line "tricks" Django into using "pymysql" (which is easier for us) instead.
 
 
 

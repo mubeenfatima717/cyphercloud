@@ -9,12 +9,10 @@ from django.contrib.auth import authenticate
 #for logout
 from django.contrib.auth import logout
 
-
-# if registeration pageis opened
 def register_view(request):
      
-     #it checks if user press the registeration btn to register in website
-     if request.method == 'POST':  # TODO: why capital
+     #if user press the registeration btn 
+     if request.method == 'POST':  
           
          #getting the user's info
          input_username = request.POST.get('username')
@@ -26,7 +24,7 @@ def register_view(request):
             #  return HttpResponse("user already exists")
             return render(request, 'authentication_app/login.html', {'message': 'Account already exists. Please Log In.'})
          else:
-             # TODO: all teh equvalent commands for the commands in sql
+             # all the equvalent commands for the commands in sql
              new_user = User.objects.create_user(input_username , input_email , input_password)
              login(request, new_user)
              return redirect('dashboard') 
