@@ -1,8 +1,5 @@
 README 
 
-Purpose:
-The README file is the first thing a new team member or external person sees.
-It should clearly explain what the project is, how to set it up, how to use it, and who is working on it.
 
 1. Project Description
 
@@ -72,13 +69,4 @@ python manage.py runserver
 
 Open a web browser and go to http://127.0.0.1:8000/ to see the project in action.
 
-Mention any key features briefly (authentication, AI classifier, file upload).
 
-4. Team Info / Contribution Guidelines
-
-List team members and their roles.
-
-Include a note like:
-
-“Please follow the contribution rules in the repository.
-Create a separate branch for your work, write clear commits, and submit pull requests for code review.
